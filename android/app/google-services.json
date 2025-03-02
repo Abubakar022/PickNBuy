@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "297812953491",
+    "project_id": "quickkart-8499d",
+    "storage_bucket": "quickkart-8499d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297812953491:android:b241a9b6703b49d9aa4066",
+        "android_client_info": {
+          "package_name": "com.example.e_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlaG34NFMptphoQ3-w_ENKEgktmuPnYw0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
