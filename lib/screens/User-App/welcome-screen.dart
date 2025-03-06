@@ -18,6 +18,9 @@ class WelcomeScreen extends StatefulWidget {
 class _WelcomeScreenState extends State<WelcomeScreen> {
   final GoogleSignInController _googleSignInController = Get.put
     (GoogleSignInController());
+
+  var Height = Get.height/3;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,80 +28,87 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       appBar: AppBar(
         backgroundColor: Color(0xfff3f6f8),
       ),
-      body: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.only(top: 20),
-            width: Get.width,
-            height: Get.height/10,
-            child: Lottie.asset('assets/welcome.json'),
-          ),
-          SizedBox(
-            height: Get.height / 30,
-          ),
-          Text(
-            "Trendy, Seamless, Exciting",
-            style: GoogleFonts.merriweather(
-                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
-          ),
-          SizedBox(
-            height: Get.height / 5,
-          ),
-          Container(
-            width: Get.width,
-            margin: EdgeInsets.only(right: 20, left: 20),
-            decoration: BoxDecoration(
-              color: AppColors.primary,
-              borderRadius: BorderRadius.circular(20),
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Column(
+          children: [
+            SizedBox(
+              height: Get.height / 50,
             ),
-            child: TextButton.icon(
-              icon: Image.asset(
-                'assets/google.png',
-                width: 25,
-                height: 25,
-              ),
-              label: Text(
-                "Sign in with Google",
-                style: GoogleFonts.roboto(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-              ),
-              onPressed: () {
-                _googleSignInController.GoogleSignInFun();
-              },
+            Container(
+              margin: EdgeInsets.only(top: 20),
+              width: Get.width,
+              height: Height,
+              child: Lottie.asset('assets/welcome.json'),
             ),
-          ),
-          SizedBox(
-            height: Get.height / 40,
-          ),
-          Container(
-            width: Get.width,
-            margin: EdgeInsets.only(right: 20, left: 20),
-            decoration: BoxDecoration(
-              color: AppColors.primary,
-              borderRadius: BorderRadius.circular(20),
+            SizedBox(
+              height: Get.height / 30,
             ),
-            child: TextButton.icon(
-              icon: Image.asset(
-              'assets/email.png',
-                width: 30,
-                height: 30,
+            Text(
+              "Trendy, Seamless, Exciting",
+              style: GoogleFonts.merriweather(
+                  fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+            ),
+            SizedBox(
+              height: Get.height / 5,
+            ),
+            Container(
+              width: Get.width,
+              margin: EdgeInsets.only(right: 20, left: 20),
+              decoration: BoxDecoration(
+                color: AppColors.primary,
+                borderRadius: BorderRadius.circular(30),
               ),
-              label: Text(
+              child: TextButton.icon(
+                icon: Image.asset(
+                  'assets/google.png',
+                  width: 25,
+                  height: 25,
+                ),
+                label: Text(
+                  "Sign in with Google",
+                  style: GoogleFonts.roboto(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+                onPressed: () {
+                  _googleSignInController.GoogleSignInFun();
+                },
+              ),
+            ),
+            SizedBox(
+              height: Get.height / 40,
+            ),
+            Container(
+              width: Get.width,
+              margin: EdgeInsets.only(right: 20, left: 20),
+              decoration: BoxDecoration(
+                color: AppColors.primary,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: TextButton.icon(
+                icon: Image.asset(
+                'assets/email.png',
+                  color: Colors.white,
+                  width: 30,
+                  height: 30,
+                ),
+                label: Text(
 
-                "Sign in with Email",
-                style: GoogleFonts.roboto(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
+                  "Sign in with Email",
+                  style: GoogleFonts.roboto(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+                onPressed: () {
+                  Get.to(()=>SignInScreen());
+                },
               ),
-              onPressed: () {
-                Get.offAll(()=>SignInScreen());
-              },
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
