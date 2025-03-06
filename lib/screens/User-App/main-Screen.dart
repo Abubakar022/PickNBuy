@@ -13,9 +13,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("StyleBy",style: TextStyle(color: Colors.white),),
+        title: Text("PickNBuy"),
         backgroundColor: AppColors.primary,
-        centerTitle: true,
       ),
     );
   }

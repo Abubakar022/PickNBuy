@@ -5,14 +5,19 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../../controllers/google.dart';
+
 class WelcomeScreen extends StatefulWidget {
-  const WelcomeScreen({super.key});
+
+   WelcomeScreen({super.key});
 
   @override
   State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
+  final GoogleSignInController _googleSignInController = Get.put
+    (GoogleSignInController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,7 +64,9 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                     fontWeight: FontWeight.bold,
                     color: Colors.black),
               ),
-              onPressed: () {},
+              onPressed: () {
+                _googleSignInController.GoogleSignInFun();
+              },
             ),
           ),
           SizedBox(
