@@ -9,12 +9,16 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import 'deviceToken-Controller.dart';
+
 class GoogleSignInController extends GetxController {
   final _googleSignIn = GoogleSignIn();
 
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   Future<void> GoogleSignInFun() async {
+    DeviceTokenController deviceTokenController =Get.put
+      (DeviceTokenController());
     try {
       GoogleSignInAccount? googleSignInAccount = await _googleSignIn.signIn();
       if (googleSignInAccount != null) {
@@ -34,7 +38,7 @@ class GoogleSignInController extends GetxController {
               email: user.email.toString(),
               phone: user.phoneNumber.toString(),
               userImg: user.photoURL.toString(),
-              userDeviceToken: '',
+              userDeviceToken: deviceTokenController.deviceToken.toString(),
               country: '',
               userAddress: '',
               street: '',

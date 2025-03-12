@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../controllers/deviceToken-Controller.dart';
 import '../../controllers/signUp_Controller.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -18,6 +19,8 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignUpScreen> {
   SignUpController signUpController = Get.put(SignUpController());
+  DeviceTokenController deviceTokenController =Get.put
+    (DeviceTokenController());
   TextEditingController UserName = TextEditingController();
   TextEditingController UserEmail = TextEditingController();
   TextEditingController UserPhone = TextEditingController();
@@ -191,8 +194,9 @@ class _SignInScreenState extends State<SignUpScreen> {
                         String email = UserEmail.text.trim();
                         String phone = UserPhone.text.trim();
                         String city = UserCity.text.trim();
+                        String token = deviceTokenController.deviceToken
+                            .toString();
                         String password = UserPassword.text.trim();
-                        String userDeviceToken = '';
                         if (name.isEmpty ||
                             email.isEmpty ||
                             phone.isEmpty ||
@@ -208,8 +212,10 @@ class _SignInScreenState extends State<SignUpScreen> {
                               colorText: Color(0xFFf3f6f8));
                         } else {
                           UserCredential? userCredential =
+                           // SignUpWithEmailFun is a function in Signup
+                          // controller some parameters 
                               await signUpController.SignUpWithEmailFun(email,
-                                  name, phone, city, password, userDeviceToken);
+                                  name, phone, city, password,token);
                           if (userCredential != null) {
                             Get.snackbar(
                                 "Verification Email Sent.",
