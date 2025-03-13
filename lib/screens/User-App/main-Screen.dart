@@ -1,9 +1,12 @@
 import 'package:e_app/screens/User-App/welcome-screen.dart';
 import 'package:e_app/utils/app-colors.dart';
+import 'package:e_app/widget/banner-widget.dart';
+import 'package:e_app/widget/custom-drawer.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class MainScreen extends StatefulWidget {
@@ -18,25 +21,28 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("PickNBuy"),
+        iconTheme: IconThemeData(color: Colors.white),
+        title: Text("PickNBuy", style: GoogleFonts.roboto(
+          fontWeight: FontWeight.bold,
+          color: Colors.white,
+        ),),
         backgroundColor: AppColors.primary,
-        actions: [
-          GestureDetector(
-              onTap: () {
-                final FirebaseAuth _auth = FirebaseAuth.instance;
-                _auth.signOut();
-                GoogleSignIn variable = GoogleSignIn();
-                variable.signOut();
-                Get.offAll(() => WelcomeScreen());
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Icon(
-                  Icons.logout_rounded,
-                  size: 35,
-                ),
-              ))
-        ],
+      ),
+      drawer: DrawerWideget(),
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Container(
+          child: Column(
+            children: [
+              SizedBox(
+                height: Get.height/90,
+              ),
+//banner
+
+            BannerWidget(),
+            ],
+          ),
+        ),
       ),
     );
   }
