@@ -2,7 +2,6 @@ import 'package:e_app/screens/Admin-App/Admin-Main-Screen.dart';
 import 'package:e_app/screens/User-App/forgetPassword-Screen.dart';
 import 'package:e_app/screens/User-App/main-Screen.dart';
 import 'package:e_app/screens/User-App/signUp-Screen.dart';
-import 'package:e_app/screens/User-App/welcome-screen.dart';
 import 'package:e_app/utils/app-colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';

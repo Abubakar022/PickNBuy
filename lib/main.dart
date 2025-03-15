@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
               color: AppColors.textPrimary,
               fontSize: 18,
               fontWeight: FontWeight.bold),
-          bodyMedium: TextStyle(color: AppColors.textSecondary, fontSize: 16),
+          bodyMedium: TextStyle(color: AppColors.textPrimary, fontSize: 16),
         ),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
