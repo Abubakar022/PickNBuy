@@ -42,7 +42,8 @@ class _BannerWidgetState extends State<BannerWidget> {
           autoPlay: true,
           aspectRatio: 2.5,
           viewportFraction: 1,
-        ));
+        )
+        );
       }),
     );
   }

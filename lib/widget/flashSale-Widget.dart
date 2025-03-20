@@ -14,7 +14,7 @@ class FlashSaleWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: FirebaseFirestore.instance.collection('products').get(),
+        future: FirebaseFirestore.instance.collection('products').where('isSale',isEqualTo: true).get(),
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> Snapshot) {
           if (Snapshot.hasError) {
             Get.snackbar("Error", "",

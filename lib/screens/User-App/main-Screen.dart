@@ -1,3 +1,4 @@
+import 'package:e_app/screens/User-App/all-Categories-Screen.dart';
 import 'package:e_app/screens/User-App/categories-Screen.dart';
 import 'package:e_app/screens/User-App/welcome-screen.dart';
 import 'package:e_app/utils/app-colors.dart';
@@ -12,6 +13,9 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+
+import '../../widget/all-Product-Widget.dart';
+import 'all-products.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -60,10 +64,21 @@ class _MainScreenState extends State<MainScreen> {
               HeadingWidget(
                 headingTitle: "Flash Sale",
                 subTitle: "Low Budget",
-                onTap: () {},
+                onTap: () {
+                    Get.to(()=>AllCategoriesScreen());
+                },
                 buttonText: "See more >",
               ),
               FlashSaleWidget(),
+              HeadingWidget(
+                headingTitle: "All Products",
+                subTitle: "Low Budget",
+                onTap: () {
+                  Get.to(()=>AllProductScreen());
+                },
+                buttonText: "See more >",
+              ),
+              allProductWidget(),
             ],
           ),
         ),
