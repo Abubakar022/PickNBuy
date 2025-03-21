@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:e_app/screens/User-App/product-Detail-Screen.dart';
 import 'package:e_app/screens/User-App/product-Screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -95,10 +96,9 @@ class _AllCategoriesScreenState extends State<AllCategoriesScreen> {
                     return Row(
                       children: [
                         GestureDetector(
-                          // onTap: (){
-                          //   Get.to(()=>ProductScreen(CategoryId :
-                          //   categoriesModel.categoryId));
-                          // },
+                          onTap: (){
+                            Get.to(()=>ProductDescription(productModel:productModel));
+                          },
                           child: Padding(
                             padding: EdgeInsets.all(5),
                             child: Container(

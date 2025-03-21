@@ -94,10 +94,23 @@ class _ProductDescriptionState extends State<ProductDescription> {
                       padding: EdgeInsets.all(8),
                       child: Container(
                         alignment: Alignment.topLeft,
-                        child: Text("PKR:" + widget.productModel.fullPrice, style: GoogleFonts.roboto(
-                          fontWeight: FontWeight.w500,
-                          color: AppColors.textPrimary,
-                        ),),
+                        child: Row(
+                          children: [
+                            widget.productModel.isSale == true && widget
+                                .productModel.salePrice != ''?
+                            Text("PKR:" + widget.productModel.salePrice, style:
+                            GoogleFonts.roboto(
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.textPrimary,
+                            ),
+                            ): Text("PKR:" + widget.productModel.fullPrice, style:
+                            GoogleFonts.roboto(
+                              fontWeight: FontWeight.w500,
+                              color: AppColors.textPrimary,
+                            ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     Padding(

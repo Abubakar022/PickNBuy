@@ -1,4 +1,4 @@
-import 'package:e_app/screens/User-App/all-Categories-Screen.dart';
+import 'package:e_app/screens/User-App/all-FlashSale-products.dart';
 import 'package:e_app/screens/User-App/categories-Screen.dart';
 import 'package:e_app/screens/User-App/welcome-screen.dart';
 import 'package:e_app/utils/app-colors.dart';

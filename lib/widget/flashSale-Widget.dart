@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:image_card/image_card.dart';
 
+import '../screens/User-App/product-Detail-Screen.dart';
 import '../utils/app-colors.dart';
 
 class FlashSaleWidget extends StatelessWidget {
@@ -60,42 +61,47 @@ class FlashSaleWidget extends StatelessWidget {
                         updatedAt: flashSale['updatedAt']);
                     return Row(
                       children: [
-                        Padding(
-                          padding: EdgeInsets.all(5),
-                          child: Container(
-                            child: FillImageCard(
-                              width: Get.width / 4,
-                              heightImage: Get.height / 10,
-                              borderRadius: 20,
-                              color: AppColors.primary,
-                              imageProvider: CachedNetworkImageProvider(
-                                  productModel.productImages[0]),
-                              title: Text(
-                                productModel.productName,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(fontSize: 15),
-                              ),
-                              footer: Row(
-                                children: [
-                                  Text(
-                                    "Rs ${productModel.salePrice}",
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: AppColors.white,
-                                       ),
-                                  ),
-                                  SizedBox(
-                                    width: 4,
-                                  ),
-                                  Text(
-                                    "${productModel.fullPrice}",
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        color: AppColors.black,
-                                        decoration: TextDecoration.lineThrough),
-                                  ),
-                                ],
+                        GestureDetector(
+                          onTap: (){
+                            Get.to(()=>ProductDescription(productModel:productModel));
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.all(5),
+                            child: Container(
+                              child: FillImageCard(
+                                width: Get.width / 4,
+                                heightImage: Get.height / 10,
+                                borderRadius: 20,
+                                color: AppColors.primary,
+                                imageProvider: CachedNetworkImageProvider(
+                                    productModel.productImages[0]),
+                                title: Text(
+                                  productModel.productName,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(fontSize: 15),
+                                ),
+                                footer: Row(
+                                  children: [
+                                    Text(
+                                      "Rs ${productModel.salePrice}",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.bold,
+                                          color: AppColors.white,
+                                         ),
+                                    ),
+                                    SizedBox(
+                                      width: 4,
+                                    ),
+                                    Text(
+                                      "${productModel.fullPrice}",
+                                      style: TextStyle(
+                                          fontSize: 14,
+                                          color: AppColors.black,
+                                          decoration: TextDecoration.lineThrough),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
